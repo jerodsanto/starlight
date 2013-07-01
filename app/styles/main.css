@@ -1,0 +1,29 @@
+.headline {
+  padding: 15px 0 70px;
+  text-align: center;
+}
+.logo {
+  font-size: 90px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 100px;
+}
+.logo small {
+  color: rgba(52, 73, 94, 0.30000000000000004);
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  padding-top: 5px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.user {
+  display: inline-block;
+  padding: 5px;
+}
+.user .user-login {
+  font-size: 10px;
+  text-align: center;
+}
