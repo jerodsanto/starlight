@@ -44,7 +44,7 @@
 
       <div class="row following" ng-show="hasFollowing()">
         <div class="user" ng-repeat="user in following">
-          <a href="">
+          <a href="" ng-click="getStars(user.login)">
             <img ng-src="{{user.avatar_url}}" width="96" height="96">
             <div class="user-login">{{user.login}}</div>
           </a>

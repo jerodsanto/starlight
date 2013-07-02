@@ -14,4 +14,8 @@ app.service("GitHub", function($http) {
       return response.data.data;
     });
   }
+
+  this.stars = function(login) {
+    return [];
+  }
 })

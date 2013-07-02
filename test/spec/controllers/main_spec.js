@@ -51,4 +51,20 @@ describe("MainCtrl", function() {
     })
   })
 
+  describe("#getStars", function() {
+    it("populates the 'stars' model with results from GitHub.stars call", inject(function($q) {
+      spyOn(GitHub, "stars").andCallFake(function() {
+        var deferred = $q.defer();
+        deferred.resolve([{}, {}, {}]);
+        return deferred.promise;
+      })
+
+      scope.getStars("jerodsanto");
+
+      scope.$apply();
+
+      expect(GitHub.stars).toHaveBeenCalledWith("jerodsanto");
+      expect(scope.stars.length).toEqual(3);
+    }))
+  })
 })

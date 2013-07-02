@@ -15,6 +15,12 @@ app.controller("MainCtrl", function($scope, GitHub) {
     })
   }
 
+  $scope.getStars = function(login) {
+    GitHub.stars(login).then(function(results) {
+      $scope.stars = results;
+    })
+  }
+
   $scope.hasFollowing = function() {
     return $scope.following.length > 0;
   }
