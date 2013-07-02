@@ -11,6 +11,12 @@ describe("MainCtrl", function() {
     MainCtrl = $controller("MainCtrl", {$scope: scope});
   }));
 
+  describe("initialization", function() {
+    it("sets model defaults", function() {
+      expect(scope.following).toEqual([]);
+    })
+  })
+
   describe("#getFollowing", function() {
     it("populates the 'following' model with results from GitHub.following call", inject(function($q) {
       spyOn(GitHub, "following").andCallFake(function() {
