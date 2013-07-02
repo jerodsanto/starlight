@@ -68,4 +68,15 @@ describe("MainCtrl", function() {
       expect(scope.stars.length).toEqual(3);
     }))
   })
+
+  describe("#hasStarrer", function() {
+    it("is true when starrer is defined", function() {
+      scope.starrer = "ohai";
+      expect(scope.hasStarrer()).toEqual(true);
+    })
+
+    it("is false when starrer is undefined", function() {
+      expect(scope.hasStarrer()).toEqual(false);
+    })
+  })
 })

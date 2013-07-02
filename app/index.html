@@ -51,9 +51,8 @@
         </div>
 
         <div class="row">
-          <h1>
-            Select an avatar to see his/her recent stars...
-          </h1>
+          <h1 ng-show="hasStarrer()">Showing {{starrer}}'s recent stars</h1>
+          <h1 ng-hide="hasStarrer()">Select an avatar to see his/her recent stars...</h1>
         </div>
       </div>
 

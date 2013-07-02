@@ -17,6 +17,8 @@ app.controller("MainCtrl", function($scope, GitHub) {
   }
 
   $scope.getStars = function(login) {
+    $scope.starrer = login;
+
     GitHub.stars(login).then(function(results) {
       $scope.stars = results;
     })
@@ -24,5 +26,9 @@ app.controller("MainCtrl", function($scope, GitHub) {
 
   $scope.hasAny = function(modelName) {
     return $scope[modelName].length > 0;
+  }
+
+  $scope.hasStarrer = function() {
+    return angular.isDefined($scope.starrer);
   }
 });
