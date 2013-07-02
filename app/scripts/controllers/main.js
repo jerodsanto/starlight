@@ -4,6 +4,7 @@ var app = angular.module("starlight");
 
 app.controller("MainCtrl", function($scope, GitHub) {
   $scope.following = [];
+  $scope.stars = [];
 
   $scope.getFollowing = function() {
     var l = Ladda.create(document.querySelector("#get-following"));
@@ -21,7 +22,7 @@ app.controller("MainCtrl", function($scope, GitHub) {
     })
   }
 
-  $scope.hasFollowing = function() {
-    return $scope.following.length > 0;
+  $scope.hasAny = function(modelName) {
+    return $scope[modelName].length > 0;
   }
 });

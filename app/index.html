@@ -42,7 +42,7 @@
         </form>
       </div>
 
-      <div class="row following" ng-show="hasFollowing()">
+      <div class="row following" ng-show="hasAny('following')">
         <div class="user" ng-repeat="user in following">
           <a href="" ng-click="getStars(user.login)">
             <img ng-src="{{user.avatar_url}}" width="96" height="96">
@@ -55,6 +55,10 @@
             Select an avatar to see his/her recent stars...
           </h1>
         </div>
+      </div>
+
+      <div class="row stars" ng-show="hasAny('stars')">
+        <h1>ohai</h1>
       </div>
     </div>
 

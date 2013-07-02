@@ -14,6 +14,7 @@ describe("MainCtrl", function() {
   describe("initialization", function() {
     it("sets model defaults", function() {
       expect(scope.following).toEqual([]);
+      expect(scope.stars).toEqual([]);
     })
   })
 
@@ -39,15 +40,15 @@ describe("MainCtrl", function() {
     }))
   })
 
-  describe("#hasFollowing", function() {
-    it("is true when 'following' model has items", function() {
-      scope.following = [{}];
-      expect(scope.hasFollowing()).toEqual(true);
+  describe("#hasAny", function() {
+    it("is true when 'modelName' has items", function() {
+      scope.stars = [{}];
+      expect(scope.hasAny("stars")).toEqual(true);
     })
 
-    it("is false when 'following' model doesn't have any items", function() {
+    it("is false when 'modelName' doesn't have any items", function() {
       scope.following = [];
-      expect(scope.hasFollowing()).toEqual(false);
+      expect(scope.hasAny("following")).toEqual(false);
     })
   })
 
