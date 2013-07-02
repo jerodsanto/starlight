@@ -19,6 +19,10 @@ describe("MainCtrl", function() {
 
   describe("#getFollowing", function() {
     it("populates the 'following' model with results from GitHub.following call", inject(function($q) {
+      var ladda = jasmine.createSpyObj("ladda", ["start", "stop"]);
+
+      spyOn(Ladda, "create").andReturn(ladda);
+
       spyOn(GitHub, "following").andCallFake(function() {
         var deferred = $q.defer();
         deferred.resolve([{}, {}]);
