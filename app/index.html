@@ -43,7 +43,18 @@
       </div>
 
       <div class="row following" ng-show="hasFollowing()">
-        <h1>ohai</h1>
+        <div class="user" ng-repeat="user in following">
+          <a href="">
+            <img ng-src="{{user.avatar_url}}" width="96" height="96">
+            <div class="user-login">{{user.login}}</div>
+          </a>
+        </div>
+
+        <div class="row">
+          <h1>
+            Select an avatar to see his/her recent stars...
+          </h1>
+        </div>
       </div>
     </div>
 
