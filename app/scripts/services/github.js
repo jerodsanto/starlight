@@ -16,6 +16,10 @@ app.service("GitHub", function($http) {
   }
 
   this.stars = function(login) {
-    return [];
+    var url = this.jsonPUrl("users/" + login + "/starred");
+
+    return $http.jsonp(url).then(function(response) {
+      return response.data.data;
+    })
   }
 })

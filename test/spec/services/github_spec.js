@@ -33,4 +33,23 @@ describe("GitHub", function() {
       expect(results.length).toEqual(2);
     })
   })
+
+  describe(".stars", function() {
+    it("queries the GitHub API and returns response data objects", function() {
+      var api = "https://api.github.com/users/jerodsanto/starred?callback=JSON_CALLBACK";
+      var results;
+
+      http.expectJSONP(api).respond({
+        meta: {},
+        data: [{}, {}, {}]
+      })
+
+      GitHub.stars("jerodsanto").then(function(repos) {
+        results = repos;
+      })
+
+      http.flush();
+      expect(results.length).toEqual(3);
+    })
+  })
 })
