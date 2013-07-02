@@ -28,4 +28,17 @@ describe("MainCtrl", function() {
       expect(scope.following.length).toEqual(2);
     }))
   })
+
+  describe("#hasFollowing", function() {
+    it("is true when 'following' model has items", function() {
+      scope.following = [{}];
+      expect(scope.hasFollowing()).toEqual(true);
+    })
+
+    it("is false when 'following' model doesn't have any items", function() {
+      scope.following = [];
+      expect(scope.hasFollowing()).toEqual(false);
+    })
+  })
+
 })

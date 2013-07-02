@@ -8,4 +8,8 @@ app.controller("MainCtrl", function($scope, GitHub) {
       $scope.following = results;
     })
   }
+
+  $scope.hasFollowing = function() {
+    return $scope.following.length > 0;
+  }
 });
