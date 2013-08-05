@@ -1,0 +1,9 @@
+{
+  "name": "flat-ui",
+  "version": "0.0.0",
+  "commit": "c0afb3e80d5ccf81a3f271f16d352ee2908a095b",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iurevych/Flat-UI.git"
+  }
+}

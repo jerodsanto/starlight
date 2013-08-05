@@ -1,0 +1,89 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Starlight, Starbright</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="components/flat-ui/css/bootstrap.css">
+    <link rel="stylesheet" href="components/flat-ui/css/flat-ui.css">
+    <link rel="stylesheet" href="styles/ladda-themeless.min.css">
+    <link rel="stylesheet" href="styles/5f81af25.main.css">
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+      <script src="components/flat-ui/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="starlight">
+
+    <div class="container" ng-controller="MainCtrl">
+      <div class="headline">
+        <h1 class="logo">Starlight <small>shedding some light on star worthy github stuffs</small></h1>
+      </div>
+
+      <div class="row">
+        <form ng-submit="getFollowing()">
+          <div class="span4 offset4">
+            <input type="text" value="" placeholder="jerodsanto" class="span4" ng-model="user">
+          </div>
+
+          <div class="span2">
+            <button id="get-following" class="ladda-button btn btn-large btn-block btn-primary" data-style="zoom-in">
+              <span class="lada-label">Get Following</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="row following" ng-show="hasAny('following')">
+        <div class="user" ng-repeat="user in following">
+          <a href="" ng-click="getStars(user.login)">
+            <img ng-src="{{user.avatar_url}}" width="96" height="96">
+            <div class="user-login">{{user.login}}</div>
+          </a>
+        </div>
+
+        <div class="row">
+          <h1 ng-show="hasStarrer()">Showing {{starrer}}'s recent stars</h1>
+          <h1 ng-hide="hasStarrer()">Select an avatar to see his/her recent stars...</h1>
+        </div>
+      </div>
+
+      <div class="row stars" ng-show="hasAny('stars')">
+        <table>
+          <tr>
+            <th>Repo</th>
+            <th>language</th>
+            <th>forks</th>
+            <th>watchers</th>
+            <th>description</th>
+          </tr>
+          <tr ng-repeat="repo in stars">
+            <td>
+              <a href="{{repo.owner.html_url}}" target="_blank">{{repo.owner.login}}</a>/
+              <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+            </td>
+            <td>{{repo.language}}</td>
+            <td>{{repo.forks_count}}</td>
+            <td>{{repo.watchers_count}}</td>
+            <td>{{repo.description}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="vendor/spin.min.js"></script>
+    <script src="vendor/ladda.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/github.js"></script>
+  </body>
+</html>
