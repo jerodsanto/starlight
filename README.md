@@ -12,8 +12,10 @@
 
 1.  Install [Yeoman](http://yeoman.io) bits
 2.  Clone this repo
-3.  Run `bower install`
-4.  Run `grunt server`
+3.  Change to repo directory
+4.  Run `bower install`
+5.  Run `sudo npm install`
+6.  Run `grunt server`
 
 ## running tests
 
